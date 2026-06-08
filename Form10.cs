@@ -215,5 +215,79 @@ namespace WinFormsApp1
         {
 
         }
+
+        private void CboPROFILE_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form10_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnlogin_Click(object sender, EventArgs e)
+        {
+            // ១. ទាញយកតម្លៃពី TextBox មកទុកក្នុង Variable
+            // (សូមប្រាកដថា TextBox ទាំងពីររបស់អ្នកមានឈ្មោះ Name ថា txtUsername និង txtPassword)
+            string username = TxtPWD.Text.Trim();
+            string password = TxtNAME.Text.Trim();
+
+            // ២. ពិនិត្យថាមានចន្លោះទំនេរដែលមិនទាន់វាយបញ្ចូលដែរឬទេ
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("សូមបញ្ចូល Username និង Password ឲ្យបានគ្រប់គ្រាន់!", "ការព្រមាន", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // ៣. នេះជា Connection String ដែលបានកែតម្រូវតាមម៉ាស៊ីនរបស់អ្នករួចជាស្រេច
+            string connString = @"Server=.\SQLEXPRESS; Database=test1; Integrated Security=True;";
+
+            // Query សម្រាប់ទៅឆែកមើលក្នុង Table USER_ACCOUNT របស់អ្នក
+            string query = "SELECT COUNT(*) FROM USER_ACCOUNT WHERE USER_NAME = @user AND USER_PWD = @pwd";
+
+            // ៤. ភ្ជាប់ទៅកាន់ Database និងផ្ទៀងផ្ទាត់
+            using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, conn))
+                    {
+                        // ជំនួសតម្លៃ Parameter ការពារការលួច Hack (SQL Injection)
+                        cmd.Parameters.AddWithValue("@user", username);
+                        cmd.Parameters.AddWithValue("@pwd", password);
+
+                        // អានលទ្ធផលលេខទិន្នន័យដែលរកឃើញ
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if (count > 0) // បើរកឃើញគណនីមានន័យថាត្រឹមត្រូវហើយ
+                        {
+                            MessageBox.Show("ចូលប្រើប្រាស់ប្រព័ន្ធជោគជ័យ!", "សារដំណឹង", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // >>> បើកទៅកាន់ Form10 <<<
+                            Form10 mainForm = new Form10(); // បង្កើតផ្ទាំង Form10
+                            mainForm.Show();                // បង្ហាញ Form10 មកលើអេក្រង់
+
+                            this.Hide();                    // លាក់ផ្ទាំង FormLogin នេះចោល
+                        }
+                        else
+                        {
+                            MessageBox.Show("Username ឬ Password មិនត្រឹមត្រូវទេ! សូមពិនិត្យឡើងវិញ។", "កំហុស", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // បង្ហាញសារកំហុស ប្រសិនបើភ្ជាប់ Database មិនដើរ
+                    MessageBox.Show("មានបញ្ហាភ្ជាប់ទៅកាន់ Database: " + ex.Message, "កំហុសប្រព័ន្ធ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             uiTabCboUserAccount = new Sunny.UI.UITabControlMenu();
+            tabPage4 = new TabPage();
+            panellogin = new Panel();
             tabPage1 = new TabPage();
             BtnVIEW = new Button();
             BtnDELETE = new Button();
@@ -47,12 +49,14 @@
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
             uiTabCboUserAccount.SuspendLayout();
+            tabPage4.SuspendLayout();
             tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // uiTabCboUserAccount
             // 
             uiTabCboUserAccount.Alignment = TabAlignment.Left;
+            uiTabCboUserAccount.Controls.Add(tabPage4);
             uiTabCboUserAccount.Controls.Add(tabPage1);
             uiTabCboUserAccount.Controls.Add(tabPage2);
             uiTabCboUserAccount.Controls.Add(tabPage3);
@@ -71,8 +75,27 @@
             uiTabCboUserAccount.TabSelectedForeColor = Color.FromArgb(224, 224, 224);
             uiTabCboUserAccount.TabSelectedHighColor = Color.Navy;
             // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(panellogin);
+            tabPage4.Location = new Point(201, 0);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(599, 448);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "LOG IN";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // panellogin
+            // 
+            panellogin.BackColor = Color.WhiteSmoke;
+            panellogin.Location = new Point(0, 0);
+            panellogin.Name = "panellogin";
+            panellogin.Size = new Size(599, 445);
+            panellogin.TabIndex = 0;
+            // 
             // tabPage1
             // 
+            tabPage1.BackColor = Color.Gainsboro;
             tabPage1.Controls.Add(BtnVIEW);
             tabPage1.Controls.Add(BtnDELETE);
             tabPage1.Controls.Add(BtnUPDATE);
@@ -92,14 +115,14 @@
             tabPage1.Size = new Size(599, 448);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "USER_ACCOUNT";
-            tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
             // 
             // BtnVIEW
             // 
-            BtnVIEW.Location = new Point(285, 390);
+            BtnVIEW.ForeColor = Color.Navy;
+            BtnVIEW.Location = new Point(105, 385);
             BtnVIEW.Name = "BtnVIEW";
-            BtnVIEW.Size = new Size(94, 29);
+            BtnVIEW.Size = new Size(418, 53);
             BtnVIEW.TabIndex = 13;
             BtnVIEW.Text = "VIEW";
             BtnVIEW.UseVisualStyleBackColor = true;
@@ -107,9 +130,10 @@
             // 
             // BtnDELETE
             // 
-            BtnDELETE.Location = new Point(429, 330);
+            BtnDELETE.ForeColor = Color.Navy;
+            BtnDELETE.Location = new Point(393, 330);
             BtnDELETE.Name = "BtnDELETE";
-            BtnDELETE.Size = new Size(94, 29);
+            BtnDELETE.Size = new Size(130, 49);
             BtnDELETE.TabIndex = 12;
             BtnDELETE.Text = "DELETE";
             BtnDELETE.UseVisualStyleBackColor = true;
@@ -117,9 +141,10 @@
             // 
             // BtnUPDATE
             // 
-            BtnUPDATE.Location = new Point(285, 330);
+            BtnUPDATE.ForeColor = Color.Navy;
+            BtnUPDATE.Location = new Point(251, 330);
             BtnUPDATE.Name = "BtnUPDATE";
-            BtnUPDATE.Size = new Size(94, 29);
+            BtnUPDATE.Size = new Size(127, 49);
             BtnUPDATE.TabIndex = 11;
             BtnUPDATE.Text = "UPDATE";
             BtnUPDATE.UseVisualStyleBackColor = true;
@@ -127,9 +152,10 @@
             // 
             // BtnINSERT
             // 
-            BtnINSERT.Location = new Point(142, 330);
+            BtnINSERT.ForeColor = Color.Navy;
+            BtnINSERT.Location = new Point(105, 330);
             BtnINSERT.Name = "BtnINSERT";
-            BtnINSERT.Size = new Size(94, 29);
+            BtnINSERT.Size = new Size(131, 49);
             BtnINSERT.TabIndex = 10;
             BtnINSERT.Text = "INSERT";
             BtnINSERT.UseVisualStyleBackColor = true;
@@ -142,6 +168,7 @@
             CboPROFILE.Name = "CboPROFILE";
             CboPROFILE.Size = new Size(196, 33);
             CboPROFILE.TabIndex = 9;
+            CboPROFILE.SelectedIndexChanged += CboPROFILE_SelectedIndexChanged;
             // 
             // TxtEMAIL
             // 
@@ -174,6 +201,7 @@
             // LblPROFILE
             // 
             LblPROFILE.AutoSize = true;
+            LblPROFILE.ForeColor = Color.Navy;
             LblPROFILE.Location = new Point(16, 277);
             LblPROFILE.Name = "LblPROFILE";
             LblPROFILE.Size = new Size(171, 25);
@@ -183,6 +211,8 @@
             // LblEMAIL
             // 
             LblEMAIL.AutoSize = true;
+            LblEMAIL.BackColor = Color.White;
+            LblEMAIL.ForeColor = Color.Navy;
             LblEMAIL.Location = new Point(16, 213);
             LblEMAIL.Name = "LblEMAIL";
             LblEMAIL.Size = new Size(148, 25);
@@ -192,6 +222,8 @@
             // LblPWD
             // 
             LblPWD.AutoSize = true;
+            LblPWD.BackColor = Color.White;
+            LblPWD.ForeColor = Color.Navy;
             LblPWD.Location = new Point(16, 150);
             LblPWD.Name = "LblPWD";
             LblPWD.Size = new Size(135, 25);
@@ -201,6 +233,8 @@
             // LblNAME
             // 
             LblNAME.AutoSize = true;
+            LblNAME.BackColor = Color.White;
+            LblNAME.ForeColor = Color.Navy;
             LblNAME.Location = new Point(16, 88);
             LblNAME.Name = "LblNAME";
             LblNAME.Size = new Size(146, 25);
@@ -210,11 +244,14 @@
             // LblID
             // 
             LblID.AutoSize = true;
+            LblID.BackColor = Color.White;
+            LblID.ForeColor = Color.Navy;
             LblID.Location = new Point(16, 25);
             LblID.Name = "LblID";
             LblID.Size = new Size(107, 25);
             LblID.TabIndex = 0;
             LblID.Text = "USER_ID :";
+            LblID.Click += LblID_Click;
             // 
             // tabPage2
             // 
@@ -242,7 +279,9 @@
             Controls.Add(uiTabCboUserAccount);
             Name = "Form10";
             Text = "Form10";
+            Load += Form10_Load;
             uiTabCboUserAccount.ResumeLayout(false);
+            tabPage4.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             ResumeLayout(false);
@@ -268,5 +307,7 @@
         private Button BtnDELETE;
         private Button BtnUPDATE;
         private Button BtnINSERT;
+        private TabPage tabPage4;
+        private Panel panellogin;
     }
 }

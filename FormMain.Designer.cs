@@ -122,6 +122,7 @@
             tabPage1.TabIndex = 2;
             tabPage1.Text = "USER";
             tabPage1.UseWaitCursor = true;
+            tabPage1.Click += tabPage1_Click;
             // 
             // BtnDelete
             // 
