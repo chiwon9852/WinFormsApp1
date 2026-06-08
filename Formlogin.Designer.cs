@@ -34,6 +34,7 @@
             txtUsername = new TextBox();
             txtPassword = new TextBox();
             BtnLogin = new Button();
+            chkShowHide = new CheckBox();
             SuspendLayout();
             // 
             // label1
@@ -75,6 +76,7 @@
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(478, 27);
             txtUsername.TabIndex = 3;
+            txtUsername.TextChanged += txtUsername_TextChanged;
             // 
             // txtPassword
             // 
@@ -95,12 +97,26 @@
             BtnLogin.UseVisualStyleBackColor = true;
             BtnLogin.Click += BtnLogin_Click;
             // 
+            // chkShowHide
+            // 
+            chkShowHide.Appearance = Appearance.Button;
+            chkShowHide.AutoSize = true;
+            chkShowHide.FlatStyle = FlatStyle.Flat;
+            chkShowHide.Location = new Point(714, 156);
+            chkShowHide.Name = "chkShowHide";
+            chkShowHide.Size = new Size(40, 30);
+            chkShowHide.TabIndex = 6;
+            chkShowHide.Text = "👁️";
+            chkShowHide.UseVisualStyleBackColor = true;
+            chkShowHide.CheckedChanged += chkShowHide_CheckedChanged;
+            // 
             // Formlogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
             ClientSize = new Size(800, 450);
+            Controls.Add(chkShowHide);
             Controls.Add(BtnLogin);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
@@ -121,5 +137,6 @@
         private TextBox txtUsername;
         private TextBox txtPassword;
         private Button BtnLogin;
+        private CheckBox chkShowHide;
     }
 }
