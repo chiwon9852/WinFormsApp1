@@ -29,7 +29,7 @@ namespace WinFormsApp1
             }
 
 
-            if (username == "PREAB KUNTHY" && password == "03/08/09")
+            if (username == "KUNTHY" && password == "03-08-09")
             {
                 MessageBox.Show("ចូលប្រើប្រាស់ប្រព័ន្ធជោគជ័យ!", "សារដំណឹង", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

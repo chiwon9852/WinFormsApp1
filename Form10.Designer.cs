@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             uiTabCboUserAccount = new Sunny.UI.UITabControlMenu();
-            tabPage4 = new TabPage();
-            panellogin = new Panel();
             tabPage1 = new TabPage();
             BtnVIEW = new Button();
             BtnDELETE = new Button();
@@ -46,18 +44,20 @@
             LblPWD = new Label();
             LblNAME = new Label();
             LblID = new Label();
+            tabPage4 = new TabPage();
+            panellogin = new Panel();
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
             uiTabCboUserAccount.SuspendLayout();
-            tabPage4.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // uiTabCboUserAccount
             // 
             uiTabCboUserAccount.Alignment = TabAlignment.Left;
-            uiTabCboUserAccount.Controls.Add(tabPage4);
             uiTabCboUserAccount.Controls.Add(tabPage1);
+            uiTabCboUserAccount.Controls.Add(tabPage4);
             uiTabCboUserAccount.Controls.Add(tabPage2);
             uiTabCboUserAccount.Controls.Add(tabPage3);
             uiTabCboUserAccount.DrawMode = TabDrawMode.OwnerDrawFixed;
@@ -74,24 +74,6 @@
             uiTabCboUserAccount.TabSelectedColor = Color.FromArgb(0, 0, 192);
             uiTabCboUserAccount.TabSelectedForeColor = Color.FromArgb(224, 224, 224);
             uiTabCboUserAccount.TabSelectedHighColor = Color.Navy;
-            // 
-            // tabPage4
-            // 
-            tabPage4.Controls.Add(panellogin);
-            tabPage4.Location = new Point(201, 0);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(599, 448);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "LOG IN";
-            tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // panellogin
-            // 
-            panellogin.BackColor = Color.WhiteSmoke;
-            panellogin.Location = new Point(0, 0);
-            panellogin.Name = "panellogin";
-            panellogin.Size = new Size(599, 445);
-            panellogin.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -163,7 +145,9 @@
             // 
             // CboPROFILE
             // 
+            CboPROFILE.DropDownStyle = ComboBoxStyle.DropDownList;
             CboPROFILE.FormattingEnabled = true;
+            CboPROFILE.Items.AddRange(new object[] { "Admin", "Manager", "User" });
             CboPROFILE.Location = new Point(269, 269);
             CboPROFILE.Name = "CboPROFILE";
             CboPROFILE.Size = new Size(196, 33);
@@ -173,6 +157,7 @@
             // TxtEMAIL
             // 
             TxtEMAIL.Location = new Point(269, 208);
+            TxtEMAIL.MaxLength = 50;
             TxtEMAIL.Name = "TxtEMAIL";
             TxtEMAIL.Size = new Size(196, 30);
             TxtEMAIL.TabIndex = 8;
@@ -180,6 +165,7 @@
             // TxtPWD
             // 
             TxtPWD.Location = new Point(269, 145);
+            TxtPWD.MaxLength = 10;
             TxtPWD.Name = "TxtPWD";
             TxtPWD.Size = new Size(196, 30);
             TxtPWD.TabIndex = 7;
@@ -187,6 +173,7 @@
             // TxtNAME
             // 
             TxtNAME.Location = new Point(269, 83);
+            TxtNAME.MaxLength = 15;
             TxtNAME.Name = "TxtNAME";
             TxtNAME.Size = new Size(196, 30);
             TxtNAME.TabIndex = 6;
@@ -194,7 +181,9 @@
             // TxtID
             // 
             TxtID.Location = new Point(269, 25);
+            TxtID.MaxLength = 10;
             TxtID.Name = "TxtID";
+            TxtID.ReadOnly = true;
             TxtID.Size = new Size(196, 30);
             TxtID.TabIndex = 5;
             // 
@@ -253,6 +242,24 @@
             LblID.Text = "USER_ID :";
             LblID.Click += LblID_Click;
             // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(panellogin);
+            tabPage4.Location = new Point(201, 0);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(599, 448);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "LOG IN";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // panellogin
+            // 
+            panellogin.BackColor = Color.WhiteSmoke;
+            panellogin.Location = new Point(0, 0);
+            panellogin.Name = "panellogin";
+            panellogin.Size = new Size(599, 445);
+            panellogin.TabIndex = 0;
+            // 
             // tabPage2
             // 
             tabPage2.Location = new Point(201, 0);
@@ -275,15 +282,15 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(803, 450);
             Controls.Add(uiTabCboUserAccount);
             Name = "Form10";
             Text = "Form10";
             Load += Form10_Load;
             uiTabCboUserAccount.ResumeLayout(false);
-            tabPage4.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            tabPage4.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -293,21 +300,21 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TabPage tabPage3;
-        private TextBox TxtEMAIL;
-        private TextBox TxtPWD;
-        private TextBox TxtNAME;
-        private TextBox TxtID;
         private Label LblPROFILE;
         private Label LblEMAIL;
         private Label LblPWD;
         private Label LblNAME;
         private Label LblID;
-        private ComboBox CboPROFILE;
         private Button BtnVIEW;
         private Button BtnDELETE;
         private Button BtnUPDATE;
         private Button BtnINSERT;
         private TabPage tabPage4;
         private Panel panellogin;
+        public TextBox TxtEMAIL;
+        public TextBox TxtPWD;
+        public TextBox TxtNAME;
+        public TextBox TxtID;
+        public ComboBox CboPROFILE;
     }
 }
