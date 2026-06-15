@@ -102,7 +102,7 @@
             // BtnVIEW
             // 
             BtnVIEW.ForeColor = Color.Navy;
-            BtnVIEW.Location = new Point(105, 385);
+            BtnVIEW.Location = new Point(105, 392);
             BtnVIEW.Name = "BtnVIEW";
             BtnVIEW.Size = new Size(418, 53);
             BtnVIEW.TabIndex = 13;
@@ -147,49 +147,50 @@
             // 
             CboPROFILE.DropDownStyle = ComboBoxStyle.DropDownList;
             CboPROFILE.FormattingEnabled = true;
-            CboPROFILE.Items.AddRange(new object[] { "Admin", "Manager", "User" });
-            CboPROFILE.Location = new Point(269, 269);
+            CboPROFILE.Items.AddRange(new object[] { "Nomal Customer", "VIP Custmer", "Wholesale" });
+            CboPROFILE.Location = new Point(226, 269);
             CboPROFILE.Name = "CboPROFILE";
-            CboPROFILE.Size = new Size(196, 33);
+            CboPROFILE.Size = new Size(297, 33);
             CboPROFILE.TabIndex = 9;
             CboPROFILE.SelectedIndexChanged += CboPROFILE_SelectedIndexChanged;
             // 
             // TxtEMAIL
             // 
-            TxtEMAIL.Location = new Point(269, 208);
+            TxtEMAIL.Location = new Point(226, 208);
             TxtEMAIL.MaxLength = 50;
             TxtEMAIL.Name = "TxtEMAIL";
-            TxtEMAIL.Size = new Size(196, 30);
+            TxtEMAIL.Size = new Size(297, 30);
             TxtEMAIL.TabIndex = 8;
             // 
             // TxtPWD
             // 
-            TxtPWD.Location = new Point(269, 145);
+            TxtPWD.Location = new Point(226, 145);
             TxtPWD.MaxLength = 10;
             TxtPWD.Name = "TxtPWD";
-            TxtPWD.Size = new Size(196, 30);
+            TxtPWD.Size = new Size(297, 30);
             TxtPWD.TabIndex = 7;
             // 
             // TxtNAME
             // 
-            TxtNAME.Location = new Point(269, 83);
+            TxtNAME.Location = new Point(226, 85);
             TxtNAME.MaxLength = 15;
             TxtNAME.Name = "TxtNAME";
-            TxtNAME.Size = new Size(196, 30);
+            TxtNAME.Size = new Size(297, 30);
             TxtNAME.TabIndex = 6;
             // 
             // TxtID
             // 
-            TxtID.Location = new Point(269, 25);
+            TxtID.Location = new Point(226, 25);
             TxtID.MaxLength = 10;
             TxtID.Name = "TxtID";
             TxtID.ReadOnly = true;
-            TxtID.Size = new Size(196, 30);
+            TxtID.Size = new Size(297, 30);
             TxtID.TabIndex = 5;
             // 
             // LblPROFILE
             // 
             LblPROFILE.AutoSize = true;
+            LblPROFILE.BackColor = Color.White;
             LblPROFILE.ForeColor = Color.Navy;
             LblPROFILE.Location = new Point(16, 277);
             LblPROFILE.Name = "LblPROFILE";
@@ -215,9 +216,9 @@
             LblPWD.ForeColor = Color.Navy;
             LblPWD.Location = new Point(16, 150);
             LblPWD.Name = "LblPWD";
-            LblPWD.Size = new Size(135, 25);
+            LblPWD.Size = new Size(130, 25);
             LblPWD.TabIndex = 2;
-            LblPWD.Text = "USER_PWD :";
+            LblPWD.Text = "USER_AGE :";
             // 
             // LblNAME
             // 
@@ -282,7 +283,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(803, 450);
+            ClientSize = new Size(799, 450);
             Controls.Add(uiTabCboUserAccount);
             Name = "Form10";
             Text = "Form10";
